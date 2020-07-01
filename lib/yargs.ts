@@ -22,13 +22,16 @@ import { objFilter } from './obj-filter'
 import { applyExtends } from './apply-extends'
 import { globalMiddlewareFactory, MiddlewareCallback, Middleware } from './middleware'
 import * as processArgv from './process-argv'
-import { RequireDirectoryOptions } from 'require-directory'
 import { isPromise } from './is-promise'
-import Parser = require('yargs-parser')
-import y18nFactory = require('y18n')
-import setBlocking = require('set-blocking')
-import findUp = require('find-up')
-import requireMainFilename = require('require-main-filename')
+
+import {requireDirectory} from "https://denopkg.com/yargs/yargs@deno/dist/index.js";
+const { RequireDirectoryOptions } = requireDirectory;
+
+import {Parser} from "https://denopkg.com/yargs/yargs@deno/dist/index.js";
+import {y18nFactory} from "https://denopkg.com/yargs/yargs@deno/dist/index.js";
+import {setBlocking} from "https://denopkg.com/yargs/yargs@deno/dist/index.js";
+import {findUp} from "https://denopkg.com/yargs/yargs@deno/dist/index.js";
+import {requireMainFilename} from "https://denopkg.com/yargs/yargs@deno/dist/index.js";
 
 export function Yargs (processArgs: string | string[] = [], cwd = process.cwd(), parentRequire = require) {
   const self = {} as YargsInstance
